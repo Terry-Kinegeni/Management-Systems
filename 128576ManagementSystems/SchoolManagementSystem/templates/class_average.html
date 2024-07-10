@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Average</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Get Class Average</h1>
+        <form method="POST" class="form-container">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required><br>
+            <input class="button" type="submit" value="Get Average">
+        </form>
+        <a class="button" href="/">Back to Home</a>
+    </div>
+</body>
+</html>

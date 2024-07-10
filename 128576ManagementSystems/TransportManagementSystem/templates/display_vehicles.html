@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Vehicles</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Vehicles</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Additional Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehicle in vehicles %}
+                <tr>
+                    <td>{{ vehicle.registration_number }}</td>
+                    <td>{{ vehicle.make }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>
+                        {% if vehicle.__class__.__name__ == 'Car' %}
+                        Seats: {{ vehicle.number_of_seats }}
+                        {% elif vehicle.__class__.__name__ == 'Truck' %}
+                        Cargo Capacity: {{ vehicle.cargo_capacity }}
+                        {% elif vehicle.__class__.__name__ == 'Motorcycle' %}
+                        Engine Capacity: {{ vehicle.engine_capacity }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a class="button" href="/">Back to Home</a>
+</body>
+</html>

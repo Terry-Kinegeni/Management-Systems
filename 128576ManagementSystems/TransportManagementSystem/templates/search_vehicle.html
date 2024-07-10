@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for a Vehicle</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search for a Vehicle</h1>
+        <form method="post">
+            <label for="registration_number">Registration Number:</label>
+            <input type="text" id="registration_number" name="registration_number" required><br><br>
+            <input type="submit" value="Search" class="button">
+        </form>
+        {% if vehicle %}
+        <h2>Vehicle Found:</h2>
+        <p>Registration Number: {{ vehicle.registration_number }}</p>
+        <p>Make: {{ vehicle.make }}</p>
+        <p>Model: {{ vehicle.model }}</p>
+        <p>
+            {% if vehicle.__class__.__name__ == 'Car' %}
+            Seats: {{ vehicle.number_of_seats }}
+            {% elif vehicle.__class__.__name__ == 'Truck' %}
+            Cargo Capacity: {{ vehicle.cargo_capacity }}
+            {% elif vehicle.__class__.__name__ == 'Motorcycle' %}
+            Engine Capacity: {{ vehicle.engine_capacity }}
+            {% endif %}
+        </p>
+        {% endif %}
+        <a class="button" href="/">Back to Home</a>
+    </div>

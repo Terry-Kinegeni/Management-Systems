@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Management System</h1>
+        <div class="buttons">
+            <a class="button" href="/add">Add a new patient</a>
+            <a class="button" href="/search">Search for a patient</a>
+            <a class="button" href="/remove">Remove a patient</a>
+        </div>
+        <h2>All Patients</h2>
+        {% if patients %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Illness</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.illness }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No patients found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

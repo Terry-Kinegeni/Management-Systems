@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Students</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Students</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grades</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.grades }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="button" href="/">Back to Home</a>
+    </div>
+</body>
+</html>

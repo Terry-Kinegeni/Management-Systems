@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Result</h1>
+        {% if patient %}
+        <p>Patient found: Name: {{ patient.name }}, Age: {{ patient.age }}, Illness: {{ patient.illness }}</p>
+        {% else %}
+        <p>Patient not found.</p>
+        {% endif %}
+        <a class="button" href="/">Back to Home</a>
+    </div>
+</body>
+</html>

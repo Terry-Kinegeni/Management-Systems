@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a New Patient</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add a New Patient</h1>
+        <form method="POST" class="form-container">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required><br>
+            <label for="illness">Illness:</label>
+            <input type="text" id="illness" name="illness" required><br>
+            <input class="button" type="submit" value="Add Patient">
+        </form>
+        <a class="button" href="/">Back to Home</a>
+    </div>
+</body>
+</html>
